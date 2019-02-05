@@ -4,21 +4,11 @@ const uuidv1 = require('uuid/v1');
 const moment = require('moment');
 
 
-// json format of the lions
-// {
-//     name: 'name',
-//     id: 1,
-//     age: 23,
-//     pride: 'sema',
-//     gender: "female"
-// }
-
 /**
  * returns current date & time
  */
 const createDate = () => moment().format('MMMM Do YYYY, h:mm:ss a');
 
-// const BASE_URL = '/v1/lions';
 
 const removeWhiteSpace = text => text.trim();
 
@@ -26,8 +16,6 @@ const removeWhiteSpace = text => text.trim();
 // lions container db
 let lions = [];
 
-// list of required values
-// const requiredLionKeys = ['name', 'age', 'pride', 'gender'];
 
 const PORT = 3000;
 
@@ -158,21 +146,6 @@ server.post('/v1/lions', requestBodyValidator(), (req, res) => {
 
   res.status(202).json({ message: 'lion created' });
 });
-
-const updateValidator = () => {
-  const putValidator = (req, res, next) => {
-    const { id } = req.params;
-    const searchLion = lions.find(lion => lion.id === id);
-    if (!searchLion) {
-      res.status(404).json({ message: 'lion not found' });
-    } else {
-      const { age } = req;
-    }
-    next();
-  };
-  return putValidator;
-};
-
 
 server.put('/v1/lions/:id', requestBodyValidator(), (req, res) => {
   const { id } = req.params;
