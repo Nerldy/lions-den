@@ -5,8 +5,6 @@
 version: 2
 jobs:
   build:
-    environment:
-      CC_TEST_REPORTER_ID: 8adda14e73b0782c492f354e89a940820dcb06cc026624bf259210271291ff04
     docker:
       # specify the version you desire here
       - image: circleci/node:10.15.1
@@ -30,24 +28,12 @@ jobs:
 
       - run: npm install
 
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-          # download test reporter as a static binary
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: 
-             # notify Code Climate of a pending test report using `before-build`
-            ./cc-test-reporter before-build
-            npm test -- --coverage
-            # upload test report to Code Climate using `after-build`
-            ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+      - run: npm test -- --coverage
 
 
