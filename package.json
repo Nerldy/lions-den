@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js"
+		"start": "nodemon index.js",
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,7 +14,9 @@
 		"eslint": "^5.12.1",
 		"eslint-config-airbnb-base": "^13.1.0",
 		"eslint-plugin-import": "^2.15.0",
-		"nodemon": "^1.18.9"
+		"jest": "^24.0.0",
+		"nodemon": "^1.18.9",
+		"supertest": "^3.4.2"
 	},
 	"dependencies": {
 		"body-parser": "^1.18.3",
