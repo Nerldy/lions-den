@@ -2,7 +2,7 @@ before_install:
   - npm i -g npm@version-number
 language: node_js
 node_js:
-    - "iojs"
+    - "stable"
 cache:
   directories:
     - "node_modules"
