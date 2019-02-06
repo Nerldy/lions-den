@@ -11,6 +11,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"coveralls": "^3.0.2",
 		"eslint": "^5.12.1",
 		"eslint-config-airbnb-base": "^13.1.0",
 		"eslint-plugin-import": "^2.15.0",
