@@ -4,7 +4,11 @@ node_js:
   - stable
 
 install:
-  - npm install
+    - npm ci
+
+cache:
+  directories:
+    - "$HOME/.npm"
 
 script:
   - npm test -- --coverage
