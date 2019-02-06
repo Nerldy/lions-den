@@ -87,4 +87,4 @@ typings/
 
 
 playground/
-./jest.config.js
+jest.config.js
