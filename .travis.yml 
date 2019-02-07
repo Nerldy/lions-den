@@ -1,16 +1,17 @@
 
-language: node_js
+language: 
+    - node_js
 
 node_js:
-  - stable
+    - stable
 
-before_install:
-  - npm i -g npm@version-number
 
 install:
     - npm ci
+    - npm install -g codecov
 
 cache: npm
 
 script:
   - npm test -- --coverage
+  - codecov
